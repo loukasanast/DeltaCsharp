@@ -1,0 +1,391 @@
+﻿@cyan:#06a1db;
+@blue:#0c273d;
+@green:#70b85d;
+
+.trans(@prop, @t){
+    transition:@prop ease @t;
+}
+
+@font-face{
+    font-family:Anivers;
+    src:url(../fonts/Anivers_Regular.ttf) format('truetype'), url(../fonts/Anivers_Regular.woff) format('woff');
+}
+@font-face{
+    font-family:Playfair;
+    src:url(../fonts/PlayfairDisplay-Regular.ttf) format('truetype'), url(../fonts/PlayfairDisplay-Regular.woff) format('woff');
+}
+@font-face{
+    font-family:PlayfairBold;
+    src:url(../fonts/PlayfairDisplay-Bold.ttf) format('truetype'), url(../fonts/PlayfairDisplay-Bold.woff) format('woff');
+}
+
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    font-size:11px;
+    font-family:Anivers;
+    color:#000;
+    background:#000;
+
+    h1, h2, h3, h4, h5, h6{
+        font-weight:normal;
+    }
+    a{
+        color:inherit;
+        text-decoration:none;
+        border:none;
+    }
+    ul{
+        list-style:none;
+    }
+    #wrapper{
+        header{
+            height:80px;
+            padding:0 0 0 240px;
+            background:@blue;
+
+            .cont{
+                width:800px;
+
+                nav{
+                    padding:8px 0 0 0;
+                    float:right;
+                    font-family:Playfair;
+                    line-height:72px;
+                    color:#fff;
+
+                    a{
+                        color:@cyan;
+                        cursor:not-allowed;
+
+                        &:hover{
+                            color:#fff;
+                        }
+                    }
+                }
+            }
+        }
+        main{
+            display:block;
+            min-height:664px;
+            padding:0 0 0 240px;
+            background:#fff;
+
+            .cont{
+                width:800px;
+
+                h4{
+                    padding:60px 0 0 0;
+                    font-size:12px;
+                    font-family:Playfair;
+                    line-height:18px;
+                }
+                .login-frm{
+                    table{
+                        margin:48px 0 80px 0;
+                        border-collapse:collapse;
+
+                        td{
+                            padding:0 14px 8px 0;
+                            font-size:11px;
+                            line-height:24px;
+
+                            input{
+                                display:block;
+                                width:240px;
+                                height:24px;
+                                padding:0 8px;
+                                font-size:11px;
+                                font-family:Playfair;
+                                line-height:24px;
+                                border:1px solid rgba(0, 0, 0, .32);
+                            }
+                            &:nth-child(2){
+                                padding:0 8px 8px 0;
+                            }
+                        }
+                    }
+                    button{
+                        width:80px;
+                        height:24px;
+                        font-size:11px;
+                        font-family:PlayfairBold;
+                        line-height:24px;
+                        color:#fff;
+                        text-align:center;
+                        border:none;
+                        border-radius:3px;
+                        background:@green;
+
+                        &:hover{
+                            background:@cyan;
+                        }
+                    }
+                }
+                .kein-kunde{
+                    line-height:24px;
+
+                    span{
+                        font-family:PlayfairBold;
+                    }
+                    a{
+                        color:@cyan;
+                        cursor:not-allowed;
+
+                        &:hover{
+                            color:#000;
+                        }
+                        &.freischalten{
+                            color:@blue;
+                        }
+                    }
+                }
+                .start-info{
+                    width:344px;
+                    float:left;
+                    margin:128px 0 0 0;
+
+                    img{
+                        float:left;
+                        margin:0 16px 0 0;
+                    }
+                    h3{
+                        width:344px;
+                        margin:0 0 8px 0;
+                        font-size:18px;
+                        font-family:Playfair;
+                        line-height:34px;
+                    }
+                    p{
+                        width:240px;
+                        line-height:18px;
+                    }
+                }
+            }
+            .uebersicht{
+                padding:0 0 39px 0;
+
+                nav{
+                    padding:58px 0 0 0;
+
+                    li{
+                        float:left;
+                        margin:0 24px 0 0;
+                        font-size:18px!important;
+                        font-family:Playfair;
+                        color:@cyan;
+                        cursor:not-allowed;
+
+                        &:hover{
+                            color:#000;
+                        }
+                        &:first-child{
+                            color:@blue;
+                            cursor:default;
+                        }
+                    }
+                }
+                .left-nav{
+                    width:127px;
+                    float:left;
+                    margin:78px 32px 0 0;
+                    border-right:1px solid rgba(0, 0, 0, .08);
+
+                    li{
+                        font-family:PlayfairBold;
+                        line-height:24px;
+                        color:@green;
+                        text-decoration:underline;
+                        cursor:not-allowed;
+
+                        &:hover{
+                            color:#000;
+                        }
+                    }
+                }
+                .uebersicht-tbl{
+                    float:left;
+                    border-collapse:collapse;
+
+                    thead{
+                        tr{
+                            th{
+                                min-width:160px;
+                                padding:48px 0 0 0;
+                                font-size:11px;
+                                font-weight:normal;
+                                line-height:38px;
+                                text-align:left;
+
+                                &:last-child{
+                                    text-align:right;
+                                }
+                            }
+                            &:last-child{
+                                font-family:PlayfairBold;
+
+                                th{
+                                    padding:0;
+                                    line-height:23px;
+                                    border-bottom:1px solid rgba(0, 0, 0, .08);
+
+                                    &:first-child{
+                                        color:@cyan;
+                                        text-decoration:underline;
+                                        cursor:not-allowed;
+
+                                        &:hover{
+                                            color:#000;
+                                        }
+                                    }
+                                    &:last-child{
+                                        font-size:24px!important;
+                                        font-family:Anivers;
+                                        border:none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    tbody{
+                        tr{
+                            td{
+                                width:160px;
+                                font-size:11px;
+                                font-weight:normal;
+                                line-height:24px;
+                                text-align:left;
+                            }
+                            .alle-umsaetze{
+                                font-family:PlayfairBold;
+                                color:@cyan;
+                                text-align:right;
+
+                                img{
+                                    margin:0 6px 0 0;
+                                }
+                                &:hover{
+                                    color:#000;
+                                }
+                            }
+                            &:first-child{
+                                td{
+                                    padding:9px 0 0 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            table.umsaetze-tbl{
+                width:800px;
+                border-collapse:collapse!important;
+                
+                thead{
+                    tr{
+                        th{
+                            width:120px;
+                            font-size:11px!important;
+                            font-family:Playfair;
+                            font-weight:normal;
+                            line-height:23px;
+                            text-align:left;
+                            border-top:1px solid #d6d6d6;
+                            border-bottom:1px solid #d6d6d6;
+
+                            &:nth-child(4){
+                                width:auto;
+                            }
+                            &:nth-child(5){
+                                text-align:right;
+                            }
+                            &:last-child{
+                                text-align:right;
+                            }
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        td{
+                            display:table-cell;
+                            width:120px;
+                            font-size:11px!important;
+                            font-weight:normal;
+                            line-height:31px;
+                            text-align:left;
+                            border-bottom:1px solid #d6d6d6;
+
+                            &:nth-child(4){
+                                max-width:200px;
+                                white-space:nowrap;
+	                            overflow:hidden;
+                                text-overflow:ellipsis;
+                            }
+                            &:nth-child(5){
+                                text-align:right;
+                            }
+                            &:last-child{
+                                text-align:right;
+                            }
+                        }
+                        &:nth-child(2n+1){
+                            background:rgba(0, 0, 0, .01);
+                        }
+                    }
+                }
+            }
+            .zeit-sel{
+                width:88px;
+                float:right;
+                padding:0 9px 0 7px;
+                margin:15px 0 0 0;
+                font-family:Playfair;
+                line-height:22px;
+                border:1px solid #d6d6d6;
+                background:#fff;
+                cursor:pointer;
+
+                img{
+                    float:right;
+                    margin:8px 0 0 0;
+                }
+                ul{
+                    display:none;
+                    position:relative;
+                    cursor:not-allowed;
+
+                    li{
+                        padding:4px 0;
+                        text-align:center;
+
+                        &:hover{
+                            color:#fff;
+                            background:blue;
+                        }
+                    }
+                }
+                &:hover{
+                    border-color:darken(#d6d6d6, 10%);
+                }
+            }
+        }
+        footer{
+            height:80px;
+            font-family:Playfair;
+            line-height:80px;
+            color:#fff;
+            text-align:right;
+            background:#000;
+
+            .cont{
+                width:1040px;
+            }
+        }
+    }
+    .fix{
+        clear:both;
+    }
+}

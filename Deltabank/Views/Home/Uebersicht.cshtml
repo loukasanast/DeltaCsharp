@@ -1,0 +1,124 @@
+﻿@model System.Collections.Generic.IDictionary<Deltabank.Models.Kunde, System.Collections.Generic.List<Deltabank.Models.Umsatz>>
+
+@{
+    ViewBag.Title = "Übersicht";
+    var kunde = Model.Keys.FirstOrDefault<Deltabank.Models.Kunde>();
+    var umsaetze = Model.Values.FirstOrDefault<System.Collections.Generic.IEnumerable<Deltabank.Models.Umsatz>>();
+
+    Deltabank.Models.Umsatz u1 = new Deltabank.Models.Umsatz();
+    Deltabank.Models.Umsatz u2 = new Deltabank.Models.Umsatz();
+
+    try
+    {
+        u1 = (umsaetze as System.Collections.Generic.List<Deltabank.Models.Umsatz>)[0];
+        u2 = (umsaetze as System.Collections.Generic.List<Deltabank.Models.Umsatz>)[1];
+    }
+    catch(Exception)
+    {
+        u2 = new Deltabank.Models.Umsatz();
+    }
+}
+
+@if(kunde.Konto == null)
+{
+    <h2 style="padding:43px 0 0 0;">Wir konnten Sie, nicht enloggen.</h2>
+    <span>Bitte, versuchen Sie es noch einmal.</span>
+}
+else
+{
+    <section class="uebersicht">
+        <nav>
+            <ul>
+                <li>Kontenübersicht</li>
+                <li>Umsätze</li>
+                <li>Auftragslisten</li>
+                <li>Service</li>
+                <li>Zusatzleistungen</li>
+            </ul>
+        </nav>
+        <div class="fix"></div>
+        <ul class="left-nav">
+            <li>Überweisung</li>
+            <li>Dauerauftrag</li>
+            <li>Komfort-Sparen</li>
+            <li>Western Union direkt</li>
+            <li>Gutscheine</li>
+        </ul>
+        <table class="uebersicht-tbl">
+            <thead>
+                <tr>
+                    <th>Konto</th>
+                    <th>Kontonummer</th>
+                    <th>Umsätze &euro;</th>
+                    <th>Saldo &euro;</th>
+                </tr>
+                <tr>
+                    <th>Giro plus  - EK</th>
+                    <th>@kunde.Konto.Kontonummer.ToString().Insert(3, " ").Insert(7, " ")</th>
+                    <th></th>
+                    <th>@string.Format(new System.Globalization.CultureInfo("de-DE"), "{0:0,0.00}", kunde.Konto.Saldo)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BLZ: @kunde.Konto.BLZ</td>
+                    <td>@u1.Wertstellung.ToString("dd.MM.yyyy")</td>
+                    <td>@u1.Umsatzart<span style="display:block;float:right;">@string.Format(new System.Globalization.CultureInfo("de-DE"), "{0:0,0.00}", u1.Betrag)</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Kontoart: Einzelkonto</td>
+                    <td>@u2.Wertstellung.ToString("dd.MM.yyyy")</td>
+                    <td>@u2.Umsatzart<span style="display:block;float:right;">@string.Format(new System.Globalization.CultureInfo("de-DE"), "{0:0,0.00}", u2.Betrag)</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>IBAN: @kunde.Konto.IBAN</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>BIC: @kunde.Konto.BIC</td>
+                    <td></td>
+                    <td class="alle-umsaetze"><a href="javascript:void(0)"><img src="~/img/arrow.png" alt="" />Alle Umsätze</a></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="fix"></div>
+    </section>
+    <table class="umsaetze-tbl">
+        <thead>
+            <tr>
+                <th>Buchungstag</th>
+                <th>Wertstellung</th>
+                <th>Umsatzart</th>
+                <th>Buchungsdetails</th>
+                <th>Betrag (&euro;)</th>
+                <th>Saldo (&euro;)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Deltabank.Models.Umsatz umsatz in umsaetze)
+            {
+                <tr>
+                    <td>@umsatz.Buchungstag.ToString("dd.MM.yyyy")</td>
+                    <td>@umsatz.Wertstellung.ToString("dd.MM.yyyy")</td>
+                    <td>@umsatz.Umsatzart</td>
+                    <td>@umsatz.Buchungsdetails</td>
+                    <td>@string.Format(new System.Globalization.CultureInfo("de-DE"), "{0:0,0.00}", umsatz.Betrag)</td>
+                    <td>@string.Format(new System.Globalization.CultureInfo("de-DE"), "{0:0,0.00}", umsatz.Saldo)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="zeit-sel">
+        Zeitraum <img src="~/img/arrow.png" alt="" />
+        <ul>
+            <li>1 Jahr</li>
+            <li>3 Monate</li>
+            <li>10 Tage</li>
+        </ul>
+    </div>
+}

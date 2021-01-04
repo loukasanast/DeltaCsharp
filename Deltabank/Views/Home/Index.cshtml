@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Homepage";
+}
+
+<h4>Deltabank Online-Banking
+<br />Willkommen</h4>
+<form class="login-frm" method="post" action="~/uebersicht">
+    <table>
+        <tr>
+            <td>Deltabank Kontonummer</td>
+            <td><input type="text" class="kontonummer-txt" name="kontonummer" value="550776952" required /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Passwort oder PIN</td>
+            <td><input type="password" class="pass-txt" name="passwort" value="00000" required /></td>
+            <td><button class="btn">Anmelden.</button></td>
+        </tr>
+    </table>
+    <p class="kein-kunde">
+        Noch kein Online-Banking Kunde?
+        <br />
+        <span>
+            <a href="javascript:void(0)">Informationen ansehen</a> ,
+            <a href="javascript:void(0)">Demokonto testen</a>
+            oder zum
+            <a class="freischalten" href="javascript:void(0)">Online-Banking freischalten</a>.
+        </span>
+    </p>
+    <div class="start-info">
+        <img src="~/img/shield.png" alt="" />
+        <h3>Sicherheitshinweis</h3>
+        <p>
+            Achtung: Betrüger werben mit vermeintlicher Banking-App der 
+            Postbank. Jetzt informieren
+        </p>
+    </div>
+    <div class="start-info">
+        <img src="~/img/keyboard.png" alt="" />
+        <h3>Neue Deltabank Kontowelt</h3>
+        <p>
+            Hier finden Sie Informationen zur neuen Postbank Kontowelt 
+            mit ihren Leistungen und Preisen ab ... 
+        </p>
+    </div>
+    <div class="fix"></div>
+</form>
+
